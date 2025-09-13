@@ -26,7 +26,12 @@ jobs:
         set -euo pipefail
 
         WORKSPACE=${GITHUB_WORKSPACE:-$PWD}
-        SCRIPT_DIR="$WORKSPACE/website"
+        # If a website/ subdirectory exists in the workspace, use it. Otherwise use the workspace root.
+        if [ -d "$WORKSPACE/website" ]; then
+          SCRIPT_DIR="$WORKSPACE/website"
+        else
+          SCRIPT_DIR="$WORKSPACE"
+        fi
 
         echo "Deploying website to $SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR (port $SSH_PORT)"
 
