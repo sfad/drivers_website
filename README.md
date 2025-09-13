@@ -10,7 +10,7 @@ python3 -m http.server 8000 --directory website
 # then open http://localhost:8000
 ```
 
-the remote site is at https://findyouride.com
+The remote site is at https://findyouride.com
 
 Notes
 - This is a static production-ready site using HTML/CSS/JS only.
