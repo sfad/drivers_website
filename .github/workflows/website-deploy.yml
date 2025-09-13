@@ -21,15 +21,22 @@ jobs:
         SSH_USER: ${{ secrets.SSH_USER }}
         SSH_HOST: ${{ secrets.SSH_HOST }}
         REMOTE_WEBSITE_DIR: ${{ secrets.REMOTE_WEBSITE_DIR }}
+        SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
       run: |
         set -euo pipefail
 
         WORKSPACE=${GITHUB_WORKSPACE:-$PWD}
         SCRIPT_DIR="$WORKSPACE/website"
 
-        echo "Deploying website to $SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR (port 22)"
+        echo "Deploying website to $SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR (port $SSH_PORT)"
 
-        echo "Syncing website/"
-        rsync -avz -e "ssh -p 22" "$SCRIPT_DIR/" "$SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR/" || true
+        echo "Remote listing before sync:"
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la $REMOTE_WEBSITE_DIR || true"
+
+        echo "Syncing website/ (mirror, will delete remote extras)"
+        rsync -avz --delete -e "ssh -p $SSH_PORT" "$SCRIPT_DIR/" "$SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR/" || true
+
+        echo "Remote listing after sync:"
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la $REMOTE_WEBSITE_DIR || true"
 
         echo "Done."
