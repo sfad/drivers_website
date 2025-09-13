@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Find Your Ride — Home</title>
+    <meta name="description"
+        content="Find Your Ride — marketplace for drivers and passengers. Discover routes, manage trips, and track dependents in real time.">
+    <!-- Localization hreflang links for SEO -->
+    <link rel="alternate" hreflang="en" href="/en/index.html">
+    <link rel="alternate" hreflang="fr" href="/fr/index.html">
+    <link rel="alternate" hreflang="ar" href="/ar/index.html">
+    <link rel="alternate" hreflang="x-default" href="/en/index.html">
+    <link rel="icon" href="assets/icons/app_icon_small.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/app_icon.svg" alt="Find Your Ride logo" height="40">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="controls">
+                <select id="lang-select" aria-label="Language selector">
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="ar">🇧🇭 العربية</option>
+                </select>
+                <button id="theme-toggle" aria-pressed="false">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 id="hero-title">ابحث عن رحلتك</h1>
+            <p id="hero-subtitle">سوق يربط بين السائقين والركاب من أجل نقل آمن وموثوق.</p>
+            <div class="hero-actions">
+                <a class="btn primary" href="download.html">Open the App</a>
+                <a class="btn" href="about.html">Learn More</a>
+            </div>
+        </section>
+
+        <section class="featured" aria-labelledby="featured-heading">
+            <h2 id="featured-heading">الطرق المميزة</h2>
+            <div id="featured-note" class="notice">
+                <p id="featured-note-text">يتم إدارة الطرق والأسعار والتوافر ديناميكيًا بواسطة مسؤولي المؤسسة والسائقين
+                    المشاركين. لعرض الطرق والأسعار الحية، افتح التطبيق أو سجّل الدخول كمسؤول مؤسسة.</p>
+                <p id="payments-fleet-note">تدعم التطبيق المدفوعات. يمكن للسائقين والركاب والمنظمات إنشاء وإدارة
+                    الأساطيل من حساباتهم.</p>
+                <p><a id="app-link" href="#">Open the App</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Find Your Ride</p>
+            <p><a href="legal/privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Get the App - Find Your Ride</title>
+    <meta name="description" content="Download Find Your Ride from the App Store or Google Play.">
+    <link rel="icon" href="assets/icons/app_icon_small.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="alternate" hreflang="en" href="/en/download.html">
+    <link rel="alternate" hreflang="fr" href="/fr/download.html">
+    <link rel="alternate" hreflang="ar" href="/ar/download.html">
+    <link rel="alternate" hreflang="x-default" href="/en/download.html">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/app_icon.svg" alt="Find Your Ride logo" height="40">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="controls">
+                <select id="lang-select" aria-label="Language selector">
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="ar">🇧🇭 العربية</option>
+                </select>
+                <button id="theme-toggle" aria-pressed="false">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 id="download-title">Téléchargez l&#39;application</h1>
+            <p id="download-subtitle">Téléchargez Trouvez Votre Trajet depuis l&#39;App Store ou Google Play.</p>
+        </section>
+
+        <section class="store-links">
+            <div class="store-buttons">
+                <a id="ios-cta" class="store-btn ios" href="#">
+                    <img src="assets/icons/app_icon_mono.svg" alt="App Store" height="40">
+                    <span id="download-cta-ios">Télécharger sur l&#39;App Store</span>
+                </a>
+                <a id="android-cta" class="store-btn android" href="#">
+                    <img src="assets/icons/app_icon_mono.svg" alt="Google Play" height="40">
+                    <span id="download-cta-android">Disponible sur Google Play</span>
+                </a>
+            </div>
+
+            <p class="note">These links are placeholders; actual store links will be provided at release.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Find Your Ride</p>
+            <p><a href="legal/privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

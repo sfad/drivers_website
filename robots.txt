@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
+
+# Disallow staging or private directories if present
+# Disallow: /staging/

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Get the App - Find Your Ride</title>
+    <meta name="description" content="Download Find Your Ride from the App Store or Google Play.">
+    <link rel="icon" href="assets/icons/app_icon_small.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="alternate" hreflang="en" href="/en/download.html">
+    <link rel="alternate" hreflang="fr" href="/fr/download.html">
+    <link rel="alternate" hreflang="ar" href="/ar/download.html">
+    <link rel="alternate" hreflang="x-default" href="/en/download.html">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/app_icon.svg" alt="Find Your Ride logo" height="40">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="controls">
+                <select id="lang-select" aria-label="Language selector">
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="ar">🇧🇭 العربية</option>
+                </select>
+                <button id="theme-toggle" aria-pressed="false">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="download-hero">
+            <div class="container">
+                <div class="download-content animate-fade-in">
+                    <h1 id="download-title">Get Find Your Ride</h1>
+                    <p id="download-subtitle">Download the app and start your journey with safe, reliable
+                        transportation.</p>
+
+                    <div class="app-preview animate-float">
+                        <div class="phone-mockup-large">
+                            <div class="phone-screen-content">
+                                <div class="app-interface">
+                                    <div class="status-bar"></div>
+                                    <div class="app-header">
+                                        <img src="assets/icons/app_icon_small.svg" alt="App Icon"
+                                            class="app-icon-small">
+                                        <span>Find Your Ride</span>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="map-placeholder animate-pulse"></div>
+                                        <div class="route-card">
+                                            <div class="route-info">
+                                                <div class="route-line"></div>
+                                                <span>School Route A</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-options">
+            <div class="container">
+                <div class="platform-detection" id="platform-detection">
+                    <h2 class="animate-slide-up">Choose Your Platform</h2>
+                    <p class="animate-slide-up" style="animation-delay: 0.1s">Available on iOS and Android</p>
+                </div>
+
+                <div class="store-buttons animate-slide-up" style="animation-delay: 0.2s">
+                    <a id="ios-cta" class="store-button-large ios animate-bounce" href="#"
+                        style="animation-delay: 0.3s">
+                        <div class="store-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                        </div>
+                        <div class="store-text">
+                            <span class="store-label">Download on the</span>
+                            <span class="store-name">App Store</span>
+                        </div>
+                    </a>
+
+                    <a id="android-cta" class="store-button-large android animate-bounce" href="#"
+                        style="animation-delay: 0.4s">
+                        <div class="store-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.896 10.893l2.866 2.866 1.296-.75a1 1 0 000-1.732l-1.296-.75-2.866 2.866zm2.866-5.852l-2.866 2.866L4.568 1.5l9.803 5.655zm-9.803 16.5l9.937-8.221-2.866-2.866L4.568 22.5z" />
+                            </svg>
+                        </div>
+                        <div class="store-text">
+                            <span class="store-label">Get it on</span>
+                            <span class="store-name">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="qr-section animate-fade-in" style="animation-delay: 0.5s">
+                    <h3>Scan to Download</h3>
+                    <div class="qr-codes">
+                        <div class="qr-card">
+                            <div class="qr-placeholder">
+                                <div class="qr-pattern"></div>
+                            </div>
+                            <span>iOS QR Code</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-placeholder">
+                                <div class="qr-pattern"></div>
+                            </div>
+                            <span>Android QR Code</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-preview animate-slide-up" style="animation-delay: 0.6s">
+                    <h3>What You'll Get</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🚗</div>
+                            <span>Real-time ride tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💳</div>
+                            <span>Secure payments</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <span>Easy booking</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔔</div>
+                            <span>Smart notifications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="download-note">Note: App store links will be available when the app is released. Join our
+                    waiting list to be notified!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Find Your Ride</p>
+            <p><a href="legal/privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
