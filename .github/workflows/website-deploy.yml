@@ -36,12 +36,26 @@ jobs:
         echo "Deploying website to $SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR (port $SSH_PORT)"
 
         echo "Remote listing before sync:"
-        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la $REMOTE_WEBSITE_DIR || true"
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la \"$REMOTE_WEBSITE_DIR\" || true"
 
-        echo "Syncing website/ (mirror, will delete remote extras)"
-        rsync -avz --delete -e "ssh -p $SSH_PORT" "$SCRIPT_DIR/" "$SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR/" || true
+        # Safety: ensure REMOTE_WEBSITE_DIR is set and not root-ish before removing files
+        if [ -z "${REMOTE_WEBSITE_DIR:-}" ] || [ "${REMOTE_WEBSITE_DIR}" = "/" ] || [ "${REMOTE_WEBSITE_DIR}" = "~" ]; then
+          echo "ERROR: REMOTE_WEBSITE_DIR is empty or unsafe: '$REMOTE_WEBSITE_DIR'"
+          exit 1
+        fi
+
+        echo "Removing old contents on remote: $REMOTE_WEBSITE_DIR"
+        # Remove files and hidden files, but keep the REMOTE_WEBSITE_DIR itself.
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "rm -rf \"$REMOTE_WEBSITE_DIR\"/* \"$REMOTE_WEBSITE_DIR\"/.[!.]* || true"
+
+        echo "Remote listing after removal:"
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la \"$REMOTE_WEBSITE_DIR\" || true"
+
+        echo "Syncing website/ to remote"
+        # Use rsync to upload the workspace contents. Keep --delete as a safety net for excluded files.
+        rsync -avz --delete --delete-excluded -e "ssh -p $SSH_PORT" "$SCRIPT_DIR/" "$SSH_USER@$SSH_HOST:$REMOTE_WEBSITE_DIR/"
 
         echo "Remote listing after sync:"
-        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la $REMOTE_WEBSITE_DIR || true"
+        ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "ls -la \"$REMOTE_WEBSITE_DIR\" || true"
 
         echo "Done."
