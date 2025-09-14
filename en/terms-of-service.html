@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title id="terms-title">Terms of Service - Find Your Ride</title>
+    <meta id="terms-desc" name="description"
+        content="Terms of Service for Find Your Ride - The rules and guidelines for using our platform.">
+    <link rel="icon" href="../../assets/icons/app_icon_small.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="alternate" hreflang="en" href="/en/terms-of-service.html">
+    <link rel="alternate" hreflang="fr" href="/fr/terms-of-service.html">
+    <link rel="alternate" hreflang="ar" href="/ar/terms-of-service.html">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../../index.html" class="logo"><img src="../../assets/icons/app_icon.svg" alt="Find Your Ride"
+                    height="50"></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../../index.html" id="nav-home">Home</a>
+                <a href="../../about.html" id="nav-about">About</a>
+            </nav>
+            <div class="controls">
+                <select id="lang-select" aria-label="Language selector" class="lang-dropdown">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="ar">🇧🇭 العربية</option>
+                </select>
+                <button id="theme-toggle" class="theme-btn">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="legal-content animate-fade-in">
+            <h1 id="terms-heading">Terms of Service</h1>
+
+            <div class="legal-meta animate-slide-up" style="animation-delay: 0.1s">
+                <p><strong>Effective Date:</strong> <span id="terms-effective-date">September 14, 2025</span></p>
+                <p>These Terms govern your access to and use of the Find Your Ride platform. By using our services, you
+                    agree to these terms.</p>
+            </div>
+
+            <section class="animate-slide-up" style="animation-delay: 0.2s">
+                <h2>Acceptance</h2>
+                <p id="terms-acceptance-para">By accessing or using the platform, you confirm that you have read,
+                    understood, and agree to be bound
+                    by these Terms of Service and our Privacy Policy.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.3s">
+                <h2>Use of the Service</h2>
+                <p id="terms-use-para">The platform connects passengers with drivers for transportation services. You
+                    agree to use the
+                    service only for lawful purposes and not to misuse the platform or interfere with its operation.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.4s">
+                <h2>Accounts</h2>
+                <p id="terms-accounts-para">You are responsible for maintaining the confidentiality of your account
+                    credentials and for all
+                    activity that occurs under your account. Notify us immediately if you suspect unauthorized access.
+                </p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.5s">
+                <h2>Payments</h2>
+                <p id="terms-payments-para">When payment features are available, you agree to pay any fees associated
+                    with transactions made
+                    through the platform. Specific payment terms will be presented when payment processing is enabled.
+                </p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.6s">
+                <h2>User Conduct</h2>
+                <p id="terms-user-conduct-para">Users must behave respectfully. Harassment, fraud, illegal activity, or
+                    any behavior that endangers
+                    others is prohibited. Violations may result in account suspension or termination.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.7s">
+                <h2>Termination</h2>
+                <p id="terms-termination-para">We may suspend or terminate access to the platform for users who violate
+                    these terms or for
+                    operational reasons. You may also close your account at any time.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.8s">
+                <h2>Disclaimer & Limitation of Liability</h2>
+                <p id="terms-disclaimer-para">The platform is provided "as is" without warranties. To the fullest extent
+                    permitted by law, Find
+                    Your Ride is not liable for indirect, incidental, or consequential damages arising from your use of
+                    the service.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 0.9s">
+                <h2>Changes</h2>
+                <p id="terms-changes-para">We may update these Terms from time to time. We will notify users of
+                    significant changes. Continued
+                    use after changes constitutes acceptance.</p>
+            </section>
+
+            <section class="animate-slide-up" style="animation-delay: 1.0s">
+                <h2 id="contact-heading">Contact</h2>
+
+                <p id="contact-intro">If you have questions about these Terms, contact us at <a
+                        id="tos-contact-link">privacy [at]
+                        findyouride [dot] com</a>
+                    <noscript> (email: privacy [at] findyouride [dot] com)</noscript>
+                </p>
+                <script>
+                    (function () {
+                        try {
+                            var user = 'privacy';
+                            var domain = 'findyouride.com';
+                            var link = document.getElementById('tos-contact-link');
+                            if (link) {
+                                link.textContent = user + '@' + domain;
+                                link.href = 'mailto:' + user + '@' + domain;
+                            }
+                        } catch (e) { /* silent */ }
+                    })();
+                </script>
+            </section>
+
+            <div class="legal-actions animate-fade-in" style="animation-delay: 1.1s">
+                <a class="btn secondary" href="../about.html" id="tos-back-about-btn">← Back to About</a>
+                <a class="btn primary" href="../index.html#download-section" id="tos-download-app-btn">📱 Download
+                    App</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Find Your Ride</p>
+            <p><a href="../privacy-policy.html">Privacy Policy</a></p>
+            <p id="footer-powered">Powered by <a href="https://neatit.com" target="_blank" rel="noopener">neatit.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -5,11 +5,16 @@
 
     async function loadLocale(lang) {
         try {
-            const res = await fetch(`i18n/${lang}.json`);
+            // Add cache busting parameter to ensure fresh fetch
+            const timestamp = Date.now();
+            const res = await fetch(`i18n/${lang}.json?v=${timestamp}`);
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}`);
+            }
             const data = await res.json();
+            console.log(`Loaded ${lang} locale with ${Object.keys(data).length} keys`);
             applyTranslations(data);
             handleRTL(lang);
-            updatePageTitle(data, lang);
         } catch (e) {
             console.warn('i18n load failed', e);
             // Fallback to English if translation fails
@@ -20,18 +25,25 @@
     }
 
     function applyTranslations(data) {
+        let applied = 0;
         for (const [k, v] of Object.entries(data)) {
             const el = document.getElementById(k);
             if (el) {
                 if (el.tagName === 'META') {
                     el.setAttribute('content', v);
                 } else if (el.tagName === 'TITLE') {
+                    // Force title update by setting both
                     el.textContent = v;
+                    setTimeout(() => {
+                        document.title = v;
+                    }, 10);
                 } else {
                     el.textContent = v;
                 }
+                applied++;
             }
         }
+        console.log(`Applied ${applied} translations out of ${Object.keys(data).length} available keys`);
     }
 
     function handleRTL(lang) {
@@ -57,22 +69,6 @@
         }
     }
 
-    function updatePageTitle(data, lang) {
-        const currentPath = window.location.pathname;
-        let titleKey = 'hero-title'; // default
-
-        if (currentPath.includes('about')) {
-            titleKey = 'about-heading';
-        } else if (currentPath.includes('download')) {
-            titleKey = 'download-title';
-        } else if (currentPath.includes('privacy')) {
-            titleKey = 'privacy-title';
-        }
-
-        const title = data[titleKey] || data['hero-title'] || 'Find Your Ride';
-        document.title = title;
-    }
-
     function initLanguageSelector() {
         // Get saved language or detect from browser
         const browserLang = navigator.language.split('-')[0];
@@ -86,6 +82,7 @@
         // Add smooth transition for language changes
         select.addEventListener('change', (e) => {
             const lang = e.target.value;
+            console.log(`Language selected: ${lang}`);
             localStorage.setItem(storageKey, lang);
 
             // Add loading animation
