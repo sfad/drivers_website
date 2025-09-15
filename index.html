@@ -13,7 +13,60 @@
     <link rel="alternate" hreflang="ar" href="/ar/index.html">
     <link rel="alternate" hreflang="x-default" href="/en/index.html">
     <link rel="icon" href="assets/icons/app_icon_small.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Cache-busting loader: tries to use ETag or Last-Modified from a HEAD request
+                 and appends it as ?v=<value> to asset URLs so browsers reload updated files.
+                 Falls back to a timestamp when headers aren't available. -->
+    <script>
+        (function () {
+            // List of assets to load
+            const cssAssets = ['css/styles.css'];
+            const jsAssets = ['js/i18n.js', 'js/theme.js', 'js/main.js'];
+
+            // Try to get a stable version value from server headers (ETag or Last-Modified)
+            function getVersion(url) {
+                try {
+                    return fetch(url, { method: 'HEAD', cache: 'no-cache' }).then(res => {
+                        if (!res || !res.headers) return String(Date.now());
+                        const etag = res.headers.get('ETag');
+                        const lm = res.headers.get('Last-Modified');
+                        if (etag) return encodeURIComponent(etag);
+                        if (lm) return encodeURIComponent(lm);
+                        return String(Date.now());
+                    }).catch(() => String(Date.now()));
+                } catch (e) {
+                    return Promise.resolve(String(Date.now()));
+                }
+            }
+
+            function loadCss(url, v) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = url + '?v=' + v;
+                document.head.appendChild(link);
+            }
+
+            function loadScriptSequential(urls) {
+                // Loads scripts in order to preserve dependencies
+                return urls.reduce((p, url) => {
+                    return p.then(() => getVersion(url).then(v => new Promise(res => {
+                        const s = document.createElement('script');
+                        s.src = url + '?v=' + v;
+                        s.async = false;
+                        s.onload = s.onerror = res;
+                        document.body.appendChild(s);
+                    })));
+                }, Promise.resolve());
+            }
+
+            // Start loading CSS (parallel)
+            cssAssets.forEach(url => {
+                getVersion(url).then(v => loadCss(url, v));
+            });
+
+            // Then load JS sequentially to keep the original order
+            loadScriptSequential(jsAssets);
+        })();
+    </script>
 </head>
 
 <body>

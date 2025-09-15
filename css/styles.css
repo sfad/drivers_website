@@ -1334,3 +1334,46 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
+/* Improve Privacy Policy link visibility in dark mode.
+   Note: `theme.js` sets `data-theme="light"` for light mode and removes the attribute for dark mode,
+   so the default selector (no data-theme) is used for dark styling. */
+#footer-privacy {
+    color: #1fb6ff;
+    background: rgba(31, 182, 255, 0.08);
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: background 0.2s, color 0.2s;
+}
+
+#footer-privacy:hover {
+    color: #0ea5e9;
+    background: rgba(31, 182, 255, 0.18);
+}
+
+/* Improve Privacy Policy link visibility in light mode */
+[data-theme="light"] #footer-privacy {
+    color: #004f9e;
+    /* darker blue for good contrast on white */
+    background: rgba(0, 102, 204, 0.06);
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    /* avoid double emphasis in light */
+    transition: background 0.2s, color 0.2s;
+}
+
+[data-theme="light"] #footer-privacy:hover {
+    color: #003a76;
+    background: rgba(0, 102, 204, 0.12);
+}
+
+/* Keyboard focus styling for accessibility (applies to both themes) */
+#footer-privacy:focus-visible {
+    outline: 3px solid rgba(31, 182, 255, 0.35);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
