@@ -1,5 +1,7 @@
 # Find Your Ride — Website (Static)
 
+last updated: October/20 2025
+
 Local preview
 
 1. Open `index.html` in a browser (you can run a simple static server):
