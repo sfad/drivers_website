@@ -14,6 +14,8 @@ python3 -m http.server 8000 --directory website
 
 The remote site is at https://findyouride.com
 
+Website Deployment path: `/var/www/website/`
+
 Notes
 - This is a static production-ready site using HTML/CSS/JS only.
 - Translations are in `i18n/` (EN, FR, AR). Language toggling uses `localStorage`.
