@@ -1,0 +1,28 @@
+# Nginx configuration for Apple App Site Association (AASA) files
+# Add this to your nginx server block configuration
+
+# Serve AASA files with correct Content-Type
+location = /apple-app-site-association {
+    add_header Content-Type application/json;
+    add_header Access-Control-Allow-Origin *;
+    add_header Cache-Control "public, max-age=3600";
+    try_files $uri =404;
+}
+
+location = /.well-known/apple-app-site-association {
+    add_header Content-Type application/json;
+    add_header Access-Control-Allow-Origin *;
+    add_header Cache-Control "public, max-age=3600";
+    try_files $uri =404;
+}
+
+# Optional: Handle requests to /.well-known/ directory
+location /.well-known/ {
+    add_header Access-Control-Allow-Origin *;
+    try_files $uri =404;
+}
+
+# Optional: Deny access to hidden files except .well-known
+location ~ /\.(?!well-known) {
+    deny all;
+}

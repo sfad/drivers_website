@@ -1,0 +1,44 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "F6677WAZDS.com.findyouride.app"
+        ],
+        "components": [
+          {
+            "#": "no_universal_links",
+            "exclude": true,
+            "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/app/*",
+            "comment": "Matches any URL whose path starts with /app/"
+          },
+          {
+            "/": "/ride/*",
+            "comment": "Matches any URL whose path starts with /ride/"
+          },
+          {
+            "/": "/driver/*", 
+            "comment": "Matches any URL whose path starts with /driver/"
+          },
+          {
+            "/": "/organization/*",
+            "comment": "Matches any URL whose path starts with /organization/"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "F6677WAZDS.com.findyouride.app"
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "F6677WAZDS.com.findyouride.app.Clip"
+    ]
+  }
+}
