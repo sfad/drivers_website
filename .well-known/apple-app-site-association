@@ -26,6 +26,18 @@
                     {
                         "/": "/organization/*",
                         "comment": "Matches any URL whose path starts with /organization/"
+                    },
+                    {
+                        "/": "/route-invitation/*",
+                        "comment": "Route invitation deep links with token"
+                    },
+                    {
+                        "/": "/organization-invitation/*",
+                        "comment": "Organization invitation deep links with token"
+                    },
+                    {
+                        "/": "/rate-trip/*",
+                        "comment": "Trip rating deep links with trip ID"
                     }
                 ]
             }

@@ -7,7 +7,7 @@
             "namespace": "android_app",
             "package_name": "com.findyouride.app",
             "sha256_cert_fingerprints": [
-                "PLACEHOLDER_SHA256_FINGERPRINT"
+                "REPLACE_WITH_YOUR_SHA256_FINGERPRINT"
             ]
         }
     }
